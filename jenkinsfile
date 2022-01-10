@@ -1,11 +1,13 @@
 pipeline {
   agent any
-  stages {
-      stage('Copy') {
-          steps {
-              sh 'echo "Copy new deploy to directory"'
-              sh 'scp ./index.nginx-debian.html root@172.17.0.4:/var/www/html/'
-      }
+  def remote = [:]
+    remote.name = 'test'
+    remote.host = '172.17.0.4'
+    remote.user = 'root'
+    remote.password = '040188'
+    remote.allowAnyHosts = true
+    stage('Remote SSH') {
+      sshCommand remote: remote, command: "ls -lrt"
+      
     }
-  }
 }
