@@ -1,9 +1,11 @@
 pipeline {
-  agent any
-  stages {
-    stage('Remote SSH') {
-        echo "hellow" 
-      }
-    
-  }
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
 }
