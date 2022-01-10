@@ -2,19 +2,12 @@ pipeline {
     agent any
 
     stages {
-      node{
-        def remote = [:]
-        remote.name = 'test'
-        remote.host = '172.17.0.4'
-        remote.user = 'root'
-        remote.password = '040188'
-        remote.allowAnyHosts = true
         stage('Build') {
             steps {
                 sshCommand remote: remote, command: "ls -lrt"
             }
         }
-      }
+      
         
     }
 }
