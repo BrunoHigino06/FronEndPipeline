@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Remote SSH') {
             steps {
                 sshGet remote: remote, from: 'abc.sh', into: 'abc_get.sh', override: true
             }
