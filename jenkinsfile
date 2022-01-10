@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        node {
+        node ('Jenkins_Worker1'){
           def remote = [:]
           remote.name = 'test'
           remote.host = 'test.domain.com'
