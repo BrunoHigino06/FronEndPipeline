@@ -2,11 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
-            steps {
-              sshagent (credentials: ['SSHAcess'])
-                sh 'scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r index.nginx-debian.html root@172.17.0.4:/var/www/html/'
+      stage('Hello') {
+          steps {
+            sshagent (credentials: ['SSHAcess']){
+              sh 'scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r index.nginx-debian.html root@172.17.0.4:/var/www/html/'   
             }
+          }
         }
     }
 }
