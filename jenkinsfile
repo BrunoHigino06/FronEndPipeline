@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Hello') {
      steps { sshagent (credentials: ['SSHAcess']) { 
-      sh "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r build/libs/ROOT.war ec2-user@ec2-server-domain://tmp"
+      sh "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r ./index.nginx-debian.html root@172.17.0.4://var/www/html/"
     
         }
       }
