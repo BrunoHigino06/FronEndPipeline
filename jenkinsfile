@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                sh 'sshpass -p "040188" scp -o StrictHostKeyChecking=no -r index.nginx-debian.html root@172.17.0.4:/var/www/html/'
+                sh 'scp -o StrictHostKeyChecking=no -r index.nginx-debian.html root@172.17.0.4:/var/www/html/'
             }
         }
     }
