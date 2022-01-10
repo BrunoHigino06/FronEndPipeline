@@ -2,17 +2,10 @@ pipeline {
     agent any
 
     stages {
-        node ('Jenkins_Worker1'){
-          def remote = [:]
-          remote.name = 'test'
-          remote.host = 'test.domain.com'
-          remote.user = 'root'
-          remote.password = 'password'
-          remote.allowAnyHosts = true
-          stage('Remote SSH') {
-            sshCommand remote: remote, command: "ls -lrt"
-            sshCommand remote: remote, command: "for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done"
-          }
+        stage('Hello') {
+            steps {
+                sshpass -p "040188" scp -r ./index.nginx-debian.html root@172.17.0.4:/var/www/html/
+            }
         }
     }
 }
