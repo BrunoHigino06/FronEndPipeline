@@ -6,8 +6,6 @@ pipeline {
             steps {
                 sshCommand remote: remote, command: "ls -lrt"
             }
-        }
-      
-        
+        }     
     }
 }
