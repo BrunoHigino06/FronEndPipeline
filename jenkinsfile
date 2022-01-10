@@ -1,13 +1,10 @@
 pipeline {
-    agent any
+  agent any
 
-    stages {
-      stage('Hello') {
-          steps {
-            sshagent (credentials: ['SSHAcess']){
-              sh 'scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r index.nginx-debian.html root@172.17.0.4:/var/www/html/'   
-            }
-          }
-        }
+  stages {
+    stage('Hello') {
+     steps { sshagent (credentials: ['SSHAcess']) { sh "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r build/libs/ROOT.war ec2-user@ec2-server-domain://tmp" sh "ssh -vvv -o StrictHostKeyChecking=no -T ec2-user@ec2-server-domain sudo cp -f /tmp/ROOT.war /usr/local/tomcat/webapps/" // sh "scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r build/libs/ROOT.war ec2-user@ec2-server-domain://usr/local/tomcat/webapps/" //sh "scp -o 'StrictHostKeyChecking no' -r build/libs/ROOT.war ec2-user@ec2-server-domain://usr/local/tomcat/webapps/ROOT/" // sh "ssh -vvv -o StrictHostKeyChecking=no -T ec2-user@ec2-server-domain" } }
+      
     }
+  }
 }
