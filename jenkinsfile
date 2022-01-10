@@ -3,7 +3,6 @@ pipeline {
       docker { image 'ubuntu:latest' }
   }
   stages {
-    {
     def remote = [:]
     remote.name = 'test'
     remote.host = 'test.domain.com'
@@ -13,6 +12,6 @@ pipeline {
      stage('Remote SSH') {
         sshRemove remote: remote, path: "abc.sh"
       }
-    }
+    
   }
 }
