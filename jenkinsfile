@@ -1,9 +1,12 @@
 pipeline {
-  agent any
+  agent {
+    docker {image 'ubuntu:ubuntu'}
+  }
   stages {
-    stage('hello') {
+    stage('Copy') {
       steps {
-        sh 'echo "Hello World"'
+        sh 'echo "Copy new deploy to directory"'
+        sh 'scp ./index.nginx-debian.html root@172.17.0.4:/var/www/html/'
       }
     }
   }
