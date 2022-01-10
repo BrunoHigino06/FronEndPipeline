@@ -3,6 +3,12 @@ pipeline {
 
     stages {
         stage('Build') {
+          def remote = [:]
+          remote.name = 'test'
+          remote.host = '172.17.0.4'
+          remote.user = 'root'
+          remote.password = '040188'
+          remote.allowAnyHosts = true
             steps {
                 sshCommand remote: remote, command: "ls -lrt"
             }
