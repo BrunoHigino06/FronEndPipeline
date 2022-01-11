@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Copy') {
+        stage('Hello') {
             steps {
-                sh 'scp index.nginx-debian.html root@172.17.0.3:/var/www/html/'
+                echo 'Hello World'
             }
         }
     }

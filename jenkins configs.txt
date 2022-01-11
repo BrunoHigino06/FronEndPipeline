@@ -34,4 +34,4 @@ locale
 Worker
 apt install openjdk-11-jre-headless -y
 apt install git -y
-service jenkins restart
+
