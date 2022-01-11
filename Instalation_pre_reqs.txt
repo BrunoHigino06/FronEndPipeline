@@ -35,3 +35,7 @@ Worker
 apt install openjdk-11-jre-headless -y
 apt install git -y
 
+=================================================
+Agent for webhook instalation
+Master
+sudo wget -O /usr/local/bin/relay https://storage.googleapis.com/webhookrelay/downloads/relay-linux-amd64
