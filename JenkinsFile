@@ -10,8 +10,8 @@ pipeline {
         }
         stage('test') {
             steps {
-                sh 'curl localhost:1000'
-                sh 'curl localhost:2000'
+                sh 'curl 172.17.0.3:1000'
+                sh 'curl 172.17.0.5:2000'
             }
         }
     }
