@@ -8,7 +8,7 @@ pipeline {
                 sh 'scp ./index.nginx-debian.html root@172.17.0.5:/var/www/html/'
             }
         }
-        stage('test') {
+        stage('URL Test') {
             steps {
                 sh 'curl 172.17.0.3'
                 sh 'curl 172.17.0.5'
