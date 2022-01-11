@@ -1,14 +1,11 @@
 pipeline {
-  agent any
+    agent any
 
-  stages {
-    stage('Hello') {
-     steps { sshagent (credentials: ['SSHAcess']) { 
-      sh "scp -i web1.key.pub -o UserKnownHostsFile=/root/.ssh/known_hosts -o StrictHostKeyChecking=no -r ./index.nginx-debian.html root@172.17.0.4://var/www/html/"
-    
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
         }
-      }
     }
-  } 
-
-} 
+}
