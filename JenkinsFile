@@ -10,7 +10,7 @@ pipeline {
         }
         stage('URL Test') {
             steps {
-                sh 'curl 172.17.0.3'
+                sh 'curl 172.17.0.4'
                 sh 'curl 172.17.0.5'
             }
         }
