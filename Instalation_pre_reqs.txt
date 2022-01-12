@@ -37,5 +37,9 @@ apt install git -y
 
 =================================================
 Agent for webhook instalation
+utilize https://my.webhookrelay.com/account to create the webhook
+https://webhookrelay.com/blog/2017/11/23/github-jenkins-guide/#Step-6-Setting-up-Webhook-Relay-agent
 Master
 sudo wget -O /usr/local/bin/relay https://storage.googleapis.com/webhookrelay/downloads/relay-linux-amd64
+relay login -k your-token-key -s your-token-secret
+relay forward --bucket github-jenkins http://localhost:8080/github-webhook/
